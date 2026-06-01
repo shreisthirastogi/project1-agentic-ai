@@ -1,0 +1,16 @@
+langchain>=0.2.0
+langchain-openai>=0.1.0
+langchain-core>=0.2.0
+langgraph>=0.1.0
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.0
+streamlit>=1.35.0
+pydantic>=2.0.0
+requests>=2.31.0
+python-dotenv>=1.0.0
+tabulate>=0.9.0
+slack_sdk>=3.0.0
+langchain-anthropic>=0.1.0
+e2b_code_interpreter>=0.0.8
+chromadb>=0.4.0
+langfuse>=2.0.0
