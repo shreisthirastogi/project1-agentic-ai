@@ -329,3 +329,5 @@ def build_graph():
     return g.compile(checkpointer=memory, interrupt_before=["action"])
 
 compiled_graph = build_graph()
+
+# AgentState schema v1
