@@ -337,3 +337,5 @@ compiled_graph = build_graph()
 # planner node v1
 
 # executor node v1
+
+# critic node v1
