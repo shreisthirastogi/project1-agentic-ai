@@ -339,3 +339,5 @@ compiled_graph = build_graph()
 # executor node v1
 
 # critic node v1
+
+# graph wiring v1
