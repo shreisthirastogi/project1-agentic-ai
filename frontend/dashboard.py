@@ -174,3 +174,5 @@ if st.session_state.thread_id:
     st.divider()
     with st.expander("📜 Full Audit Trail (run_log)"):
         st.json(state.get("run_log", []))
+
+# dashboard v1
