@@ -349,3 +349,5 @@ compiled_graph = build_graph()
 # Real Slack
 
 # replan logic
+
+# Langfuse tracing
