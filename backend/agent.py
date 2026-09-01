@@ -351,3 +351,5 @@ compiled_graph = build_graph()
 # replan logic
 
 # Langfuse tracing
+
+# E2B sandbox
