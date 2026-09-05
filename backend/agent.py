@@ -353,3 +353,5 @@ compiled_graph = build_graph()
 # Langfuse tracing
 
 # E2B sandbox
+
+# ChromaDB
