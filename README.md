@@ -18,3 +18,5 @@ A LangGraph-based AI agent that takes bounded, real-world actions (e.g., sending
 - Task Success Rate: 19/20 (95.0%)
 - False Positive Action Rate: 0% (0 Hallucinated actions)
 - Average Cost per Run: $0.0034
+
+# deployment ready
