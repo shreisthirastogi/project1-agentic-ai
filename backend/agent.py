@@ -99,13 +99,18 @@ TOOLS_MAP = {t.name: t for t in TOOLS}
 def _get_llm(temperature: float = 0):
     callbacks = [langfuse_handler] if langfuse_handler else []
     
+    gemini_key = os.getenv("GEMINI_API_KEY")
+    if gemini_key:
+        from langchain_google_genai import ChatGoogleGenerativeAI
+        return ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=gemini_key, callbacks=callbacks, temperature=temperature)
+        
     anthropic_key = os.getenv("ANTHROPIC_API_KEY")
     if anthropic_key:
         return ChatAnthropic(model="claude-3-haiku-20240307", temperature=temperature, api_key=anthropic_key, callbacks=callbacks)
         
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
-        raise EnvironmentError("OPENAI_API_KEY or ANTHROPIC_API_KEY environment variable not set.")
+        raise EnvironmentError("OPENAI_API_KEY or ANTHROPIC_API_KEY or GEMINI_API_KEY environment variable not set.")
     return ChatOpenAI(model="gpt-4o-mini", temperature=temperature, api_key=api_key, callbacks=callbacks)
 
 # ─────────────────────────────────────────────
