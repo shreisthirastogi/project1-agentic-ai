@@ -17,3 +17,5 @@ logs/
 plugins/
 .airflow/
 .streamlit/secrets.toml
+
+.streamlit/secrets.toml
