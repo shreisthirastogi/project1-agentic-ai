@@ -102,7 +102,7 @@ def _get_llm(temperature: float = 0):
     gemini_key = os.getenv("GEMINI_API_KEY")
     if gemini_key:
         from langchain_google_genai import ChatGoogleGenerativeAI
-        return ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=gemini_key, callbacks=callbacks, temperature=temperature)
+        return ChatGoogleGenerativeAI(model="gemini-flash-latest", google_api_key=gemini_key, callbacks=callbacks, temperature=temperature)
         
     anthropic_key = os.getenv("ANTHROPIC_API_KEY")
     if anthropic_key:
