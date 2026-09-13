@@ -14,3 +14,5 @@ langchain-anthropic>=0.1.0
 e2b_code_interpreter>=0.0.8
 chromadb>=0.4.0
 langfuse>=2.0.0
+
+langchain-google-genai
