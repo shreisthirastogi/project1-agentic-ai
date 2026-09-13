@@ -9,8 +9,10 @@ st.caption("Planner → Executor → Critic → **Human Gate** → Action")
 # ── Load API key from Streamlit secrets or env ────────────────────────────────
 openai_key = st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY", ""))
 anthropic_key = st.secrets.get("ANTHROPIC_API_KEY", os.getenv("ANTHROPIC_API_KEY", ""))
+gemini_key = st.secrets.get("GEMINI_API_KEY", os.getenv("GEMINI_API_KEY", ""))
+if gemini_key: os.environ["GEMINI_API_KEY"] = gemini_key
 
-if not openai_key and not anthropic_key:
+if not openai_key and not anthropic_key and not gemini_key:
     st.error("⚠️ No API key found. Add OPENAI_API_KEY in Streamlit Cloud secrets.")
     st.stop()
 

@@ -1,4 +1,4 @@
-"""
+﻿"""
 agent.py — Autonomous Ops Agent (LangGraph)
 Architecture: Planner → Executor (ReAct) → Critic → [Approval Gate] → Action
 """
