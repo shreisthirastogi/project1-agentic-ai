@@ -126,7 +126,7 @@ def planner_node(state: AgentState) -> dict:
         ("human", "Goal: {goal}")
     ])
     res = (prompt | llm).invoke({"goal": state["goal"]})
-    lines = [l.strip() for l in res.content.strip().split("\n") if l.strip()]
+    content_str = res.content if isinstance(res.content, str) else res.content[0]["text"] if isinstance(res.content, list) else str(res.content)`n    lines = [l.strip() for l in content_str.strip().split("\n") if l.strip()]
     # Strip leading numbers/dots
     tasks = [l.lstrip("0123456789). ") for l in lines][:5]
     log = state.get("run_log", [])
@@ -203,7 +203,7 @@ def critic_node(state: AgentState) -> dict:
         ("human", "Task: {task}\n\nEvidence:\n{evidence}")
     ])
     res = (prompt | llm).invoke({"task": task, "evidence": evidence_text or "None"})
-    verdict = res.content.strip().upper()
+    content_str = res.content if isinstance(res.content, str) else res.content[0]["text"] if isinstance(res.content, list) else str(res.content)`n    verdict = content_str.strip().upper()
     is_sufficient = "SUFFICIENT" in verdict
 
     log = state.get("run_log", [])
