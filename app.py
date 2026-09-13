@@ -1,13 +1,13 @@
 """
-app.py — Autonomous Ops Agent (All-in-One Streamlit App)
-Runs the LangGraph agent directly inside Streamlit — no separate backend needed.
+app.py â€” Autonomous Ops Agent (All-in-One Streamlit App)
+Runs the LangGraph agent directly inside Streamlit â€” no separate backend needed.
 """
 import os
 import streamlit as st
 import json
 
 st.set_page_config(page_title="Ops Agent Dashboard", layout="wide")
-st.title("?? Autonomous Ops Agent — Approval Dashboard")
+st.title("?? Autonomous Ops Agent â€” Approval Dashboard")
 st.caption("Planner ? Executor ? Critic ? **Human Gate** ? Action")
 
 # -- Load API key from Streamlit secrets or env --------------------------------
@@ -53,7 +53,7 @@ if st.button("?? Run Agent", type="primary"):
         "evidence": [], "pending_action": None, "approval_status": None,
         "iterations": 0, "cost_usd": 0.0, "replan_count": 0, "run_log": [],
     }
-    with st.spinner("Agent planning ? executing ? critic reviewing…"):
+    with st.spinner("Agent planning ? executing ? critic reviewingâ€¦"):
         try:
             for _ in compiled_graph.stream(initial_state, config=config):
                 pass
@@ -62,7 +62,7 @@ if st.button("?? Run Agent", type="primary"):
             st.session_state.config = config
             st.session_state.state = dict(state)
             if state.get("pending_action"):
-                st.warning("?? Agent paused — action requires your approval below.")
+                st.warning("?? Agent paused â€” action requires your approval below.")
             else:
                 st.success("? Agent completed.")
         except Exception as e:
@@ -88,7 +88,7 @@ if st.session_state.state:
 
     st.subheader("?? Evidence Collected")
     for ev in state.get("evidence", []):
-        with st.expander(f"[{ev.get('tool','N/A')}] — {str(ev.get('task',''))[:60]}…"):
+        with st.expander(f"[{ev.get('tool','N/A')}] â€” {str(ev.get('task',''))[:60]}â€¦"):
             st.code(ev.get("result", ""), language=None)
 
     # -- Approval gate ---------------------------------------------------------
@@ -120,4 +120,4 @@ if st.session_state.state:
 
     st.divider()
     with st.expander("?? Full Audit Trail"):
-        st.json(state.get("run_log", []))
+        st.json(state.get("run_log", []))
